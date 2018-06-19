@@ -25,25 +25,34 @@ export default new Router({
       }
     },
     {
+      path: '/authentication',
+      name: 'authentication',
+      component (resolve) {
+        require(['@/components/authentication'], resolve)
+      }
+    },
+    {
+      path: '/setPsw',
+      name: 'setPsw',
+      component (resolve) {
+        require(['@/components/setPsw'], resolve)
+      }
+    },
+    {
       path: '/home',
       name: 'home',
       component (resolve) {
         require(['@/components/home'], resolve)
       }
-      // ,
-      // children: [{
-      //   path: '/home/userCenter',
-      //   name: 'userCenter',
-      //   component (resolve) {
-      //     require(['@/components/user/userCenter'], resolve)
+      // children: [
+      //   {
+      //     path: '/authpull',
+      //     name: 'authpull',
+      //     component (resolve) {
+      //       require(['@/components/authPull'], resolve)
+      //     }
       //   }
-      // }, {
-      //   path: '/home/reserPsw',
-      //   name: 'reserPsw',
-      //   component (resolve) {
-      //     require(['@/components/user/resetPsw'], resolve)
-      //   }
-      // }]
+      // ]
     },
     {
       path: '/userCenter',
@@ -53,24 +62,38 @@ export default new Router({
       }
     },
     {
-      path: '/resetPsw',
-      name: 'resetPsw',
+      path: '/historyData',
+      name: 'historyData',
       component (resolve) {
-        require(['@/components/user/resetPsw'], resolve)
+        require(['@/components/historyData'], resolve)
       }
     },
     {
-      path: '/countData',
-      name: 'countData',
+      path: '/dataDetail',
+      name: 'dataDetail',
       component (resolve) {
-        require(['@/components/countData'], resolve)
+        require(['@/components/historyData/dataDetail'], resolve)
+      }
+    },
+    {
+      path: '/approvalCenter',
+      name: 'approvalCenter',
+      component (resolve) {
+        require(['@/components/approvalCenter'], resolve)
+      }
+    },
+    {
+      path: '/approvalDetail',
+      name: 'approvalDetail',
+      component (resolve) {
+        require(['@/components/approvalCenter/approvalDetail'], resolve)
       }
     },
     {
       path: '/approval',
       name: 'approval',
       component (resolve) {
-        require(['@/components/approval'], resolve)
+        require(['@/components/approvalCenter/approval'], resolve)
       }
     },
     {
@@ -78,13 +101,6 @@ export default new Router({
       name: 'authPull',
       component (resolve) {
         require(['@/components/authPull'], resolve)
-      }
-    },
-    {
-      path: '/setPsw',
-      name: 'setPsw',
-      component (resolve) {
-        require(['@/components/setPsw'], resolve)
       }
     },
     {
@@ -102,8 +118,15 @@ export default new Router({
       }
     },
     {
-      path: '/creatVisit',
-      name: 'creatVisit',
+      path: '/visitDetail',
+      name: 'visitDetail',
+      component (resolve) {
+        require(['@/components/visitRecord/visitDetail'], resolve)
+      }
+    },
+    {
+      path: '/createVisit',
+      name: 'createVisit',
       component (resolve) {
         require(['@/components/visitRecord/createVisit'], resolve)
       }
@@ -112,7 +135,14 @@ export default new Router({
       path: '/order',
       name: 'order',
       component (resolve) {
-        require(['@/components/order/businessOrder'], resolve)
+        require(['@/components/order'], resolve)
+      }
+    },
+    {
+      path: '/orderDetail',
+      name: '/orderDetail',
+      component (resolve) {
+        require(['@/components/order/orderDetail'], resolve)
       }
     },
     {
@@ -155,6 +185,13 @@ export default new Router({
       name: 'mngChange',
       component (resolve) {
         require(['@/components/businessCenter/mngChange'], resolve)
+      }
+    },
+    {
+      path: '/filter',
+      name: 'filter',
+      component (resolve) {
+        require(['@/components/common/filter'], resolve)
       }
     }
   ]

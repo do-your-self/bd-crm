@@ -6,14 +6,14 @@
       </router-link>
       <!-- <mt-button icon="more" slot="right"></mt-button> -->
     </mt-header>
-    <div class="user" @click="$router.push({path: '/userCenter'})">
+    <div class="card-title" @click="$router.push({path: '/userCenter'})">
       {{user}}
     </div>
-    <router-link to="/countData">
+    <router-link to="/historyData">
       <card tag="5月" :card="card"></card>
     </router-link>
     <!-- <card tag="5月" :card="card"></card> -->
-    <div class="h60">
+    <div class="pull">
       <router-link to="/authPull" slot="left">
         <mt-cell title="拉新用户数" :value="pull+'人'" >
         </mt-cell>
@@ -25,24 +25,25 @@
       <mt-cell title="认证用户数" :value="authentic+'人'">
       </mt-cell> -->
     </div>
-    <router-link to="/createBusiness" class="color">
+    <router-link to="/createBusiness">
       <mt-cell title="创建商户" is-link>
       </mt-cell>
     </router-link>
     <mt-cell title="商户管理" is-link to="/businessCenter">
       {{expire}}家<span style="color: red">即将到期</span>
     </mt-cell>
-    <mt-cell title="商户订单" is-link>
+    <mt-cell title="商户订单" is-link to="/order">
       共{{order}}单
     </mt-cell>
     <mt-cell title="拜访记录" is-link to="/visitRecord">
     </mt-cell>
-    <mt-cell title="审批管理" is-link>
+    <mt-cell title="审批管理" is-link to="/approvalCenter">
       {{approve}}条<span style="color: red">审批中</span>
     </mt-cell>
     <div class="btnl">
       <mt-button size="large" type="primary" @click="logout">退出系统</mt-button>
     </div>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -76,8 +77,11 @@ export default {
   methods: {
     logout () {
       // 跳转到指定的路由
+      // this.$router.push({
+      //   path: '/login'
+      // })
       this.$router.push({
-        path: '/login'
+        path: '/authpull'
       })
     }
   }
@@ -85,16 +89,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.user {
-  padding: 16px 8px 0;
-}
-.h60 {
-  padding: 10px 0;
-}
-.h60 a {
-  color: #000;
-}
-.color {
-  color: #000;
-}
+
 </style>

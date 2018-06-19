@@ -1,0 +1,148 @@
+.ml {
+  margin-top: $ml;
+} 
+.mint-msgbox-confirm {
+  margin-top: $mm;
+} 
+.ms {
+  margin-top: $ms;
+} 
+.mint-header {  
+  background-color: $color-primary;  
+}  
+h1.title {
+  font-family: ""微软雅黑 Bold", "微软雅黑"";
+  font-weight: 700;
+  color: #000;
+  font-size: $font-model;
+  padding: 50px 20px;
+}
+.mint-button:not(.is-disabled):active::after {  
+    opacity: .2 /* .6 */  
+}  
+.mint-button--primary {  
+    background-color: $color-primary;  
+}  
+.mint-button--primary.is-plain {  
+    border: 1px solid $color-primary;  
+    color: $color-primary  
+}  
+.mint-badge.is-primary {  
+  background-color: $color-primary  
+}  
+.mint-switch-input:checked + .mint-switch-core {  
+  border-color: $color-primary;  
+  background-color: $color-primary;  
+}  
+.mint-navbar .mint-tab-item.is-selected {  
+  border-bottom: 3px solid $color-primary;  
+  color: $color-primary;  
+}  
+.mint-tabbar > .mint-tab-item.is-selected {  
+  color: $color-primary;  
+}  
+.mint-searchbar-cancel {  
+  color: $color-primary;  
+}  
+.mint-checkbox-input:checked + .mint-checkbox-core {  
+  background-color: $color-primary;  
+  border-color: $color-primary;  
+}  
+.mint-radio-input:checked + .mint-radio-core {  
+  background-color: $color-primary;  
+  border-color: $color-primary;  
+}  
+.mt-range-progress {  
+  background-color: $color-primary;  
+}  
+.mt-progress-progress {  
+  background-color: $color-primary;  
+}  
+.mint-msgbox-confirm {  
+  color: $color-primary;  
+}  
+.mint-msgbox-confirm:active {  
+  color: $color-primary;  
+}  
+.mint-datetime-action {  
+  color: $color-primary;  
+}  
+
+//reset input background
+.mint-cell-wrapper {
+  font-size: $font-small;
+  background-image: none;
+  border-bottom: 1px solid #d9d9d9;
+}
+.mint-cell:last-child {
+  background-image: none;
+}
+.mint-cell-text {
+  color: $label-color;
+}
+.bg-con {
+  .mint-field.mint-cell {
+      background-color: $opcity;
+  }
+  .mint-field-core {
+      background: $opcity;
+  }
+}
+.mint-popup {
+  width: 100%;
+}
+.card-title {
+  padding: 16px 8px 0;
+  font-size: 14px;
+  color: $color-primary;
+}
+.filter {
+  border: 1px solid $font-color-primary;
+  border-radius: 3px;
+  padding: 2px 4px;
+}
+.btnCon {
+  text-align: center;
+  padding: 20px 0 10px;
+  background: $white;
+  .btn {
+    width: 100px;
+  }
+  .btnR {
+    margin-left: 20px;
+  }
+}
+.btnl {
+  padding: 20px 10px;
+}
+.btnm {
+  padding: 0 50px;
+  margin-top: 50px;
+}
+.mint-button {
+  height: 35px;
+  border-radius: 2px;
+}
+.mint-button-text {
+  font-size: $font-btn;
+}
+.pull {
+  margin: 10px 0;
+  .mint-cell {
+    min-height: 30px;
+  }
+}
+.mint-cell-allow-right::after {
+  width: 8px;
+  height: 8px;
+}
+.captcha {
+  display: inline-block;
+  width: 100px;
+  height: 30px;
+  line-height: 30px;
+  background: $color-primary;
+  text-align: center;
+  color: $font-color-primary;
+  border-radius: 2px;
+}

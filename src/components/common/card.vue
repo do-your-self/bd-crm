@@ -1,13 +1,13 @@
 <template>
-  <div class="panel_access">
+  <div class="panel">
     <span class="tag" v-if="tag">{{tag}}</span>
     <div class="panel_hd" v-if="title">{{title}}</div>
     <div class="panel_bd">
       <div class="vux-card-content">
         <div class="card-demo-flex card-demo-content">
           <div v-for="(list, index) in card" :key="list.name" v-bind:class="[index!=2 ? 'card-1px-r' : '']">
-            <div class="font14">{{list.name}}</div>
-            <div class="font20">{{list.value}}</div>
+            <div class="count-title">{{list.name}}</div>
+            <div class="count-number">{{list.value}}</div>
           </div>
         </div>
       </div>
@@ -32,80 +32,37 @@ export default {
 }
 </script>
 
-<style scoped>
-.panel_access {
-  background-color: #FFFFFF;
+<style lang="scss" scoped>
+@import "../../css/var.scss";
+.panel {
+  background-color: $white;
   margin: 8px 8px 0 8px;
   position: relative;
-  border-radius: 2px;
-  box-shadow: 0 1px 3px rgba(0,0,0,.12), 0 1px 2px rgba(0,0,0,.24);
-}
-.panel:first-child {
-  margin-top: 0;
-}
-.panel:before {
-  content: " ";
-  position: absolute;
-  left: 0;
-  top: 0;
-  right: 0;
-  height: 1px;
-  border-top: 1px solid #E5E5E5;
-  color: #E5E5E5;
-  -webkit-transform-origin: 0 0;
-          transform-origin: 0 0;
-  -webkit-transform: scaleY(0.5);
-          transform: scaleY(0.5);
-}
-.panel:after {
-  content: " ";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  height: 1px;
-  border-bottom: 1px solid #E5E5E5;
-  color: #E5E5E5;
-  -webkit-transform-origin: 0 100%;
-          transform-origin: 0 100%;
-  -webkit-transform: scaleY(0.5);
-          transform: scaleY(0.5);
+  border-radius: 7px;
+  box-shadow: 3px 3px 3px rgba(0,0,0,.12), 0 1px 2px rgba(0,0,0,.24);
 }
 .panel_hd {
-  padding: 14px 15px 10px;
-  color: #999999;
-  font-size: 13px;
+  padding: 10px 0;
+  margin: 0 10px;
+  color: $color-primary;
+  font-size: $font-model;
   position: relative;
-}
-.panel_hd:after {
-  content: " ";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  height: 1px;
   border-bottom: 1px solid #E5E5E5;
-  color: #E5E5E5;
-  -webkit-transform-origin: 0 100%;
-          transform-origin: 0 100%;
-  -webkit-transform: scaleY(0.5);
-          transform: scaleY(0.5);
-  left: 15px;
 }
 .tag {
   position: absolute;
   top: 8px;
   right: -8px;
   z-index: 1;
-  background: #333;
-  color: #ffffff;
-  padding: 4px 8px;
+  background: $color-primary;
+  color: $font-color-primary;
+  padding: 0 5px;
 }
-.font14 {
-  font-size: 14px;
+.count-title {
+  font-size: $font-small;
 }
-.font20 {
-  font-size: 20px;
+.count-number {
+  font-size: $font-large;
 }
 .card-1px-r {
   position: relative;
@@ -147,8 +104,8 @@ export default {
   padding: 10px 0;
 }
 .card-demo-content > div > div {
-  color: #000;
-  padding: 10px 0 5px;
+  color: $color-primary;
+  padding: 5px 0;
 }
 .card-padding {
   padding: 15px;

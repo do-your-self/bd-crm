@@ -4,17 +4,36 @@
       <router-link to="" slot="left">
         <mt-button icon="back" @click="$router.go(-1)">返回</mt-button>
       </router-link>
-      <mt-button slot="right"><span class="filter">筛选</span></mt-button>
+      <mt-button slot="right">
+        <!-- <span class="filter" @click="handleClick">筛选</span> -->
+        <span class="filter" @click="$router.push({path: '/filter'})">筛选</span>
+      </mt-button>
     </mt-header>
     <mt-navbar v-model="selected">
       <mt-tab-item id="1">拉新人数</mt-tab-item>
       <mt-tab-item id="2">认证人数</mt-tab-item>
     </mt-navbar>
-
+    <mt-popup v-model="popupVisible" position="top" popup-transition="popup-fade" :modal=true width="100%">
+      <mt-cell title="开始时间" is-link value="请选择开始时间" @click="openPicker('picker')"></mt-cell>
+      <mt-cell title="结束时间" is-link value="请选择结束时间"></mt-cell>
+      <mt-cell title="业务线" is-link value="请选择"></mt-cell>
+      <mt-cell title="大区/城市" is-link value="请选择"></mt-cell>
+      <div class="btnCon">
+        <mt-button size="small" type="default" class="btn" @click="cancle">取消</mt-button>
+        <mt-button size="small" type="primary" class="btn btnR" @click="submit">确定</mt-button>
+      </div>
+    </mt-popup>
+    <mt-datetime-picker
+      :modal=true
+      ref="picker"
+      type="date"
+      v-model="value"
+      @confirm="handleChange">
+    </mt-datetime-picker>
     <!-- tab-container -->
     <mt-tab-container v-model="selected">
       <mt-tab-container-item id="1">
-        <div class="card-pull ms">
+        <div class="card-pull ms" @click="openPicker('picker')">
           <h2 class="title">{{title}}</h2>
           <div class="container">
             <div class="item">商户拉新</div>
@@ -67,11 +86,29 @@ export default {
   data () {
     return {
       title: '166666',
-      selected: '1'
+      selected: '1',
+      shopName: '',
+      popupVisible: false,
+      value: null,
+      startDate: new Date(),
+      pickerValue: null
     }
   },
   methods: {
-
+    handleClick () {
+      this.popupVisible = true
+    },
+    cancle () {
+      this.popupVisible = false
+    },
+    submit () {
+      this.popupVisible = false
+    },
+    openPicker (picker) {
+      this.$refs[picker].open()
+    },
+    handleChange (value) {
+    }
   },
   watch: {
     selected: function (val, oldVal) {

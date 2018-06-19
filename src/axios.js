@@ -4,8 +4,8 @@ import router from './router'
 
 // 设置全局axios默认值
 
-// axios.defaults.baseURL = 'http://10.0.5.115:5001/'
-// axios.defaults.headers.post['Content-Type'] = 'application/json;charset=UTF-8'
+axios.defaults.baseURL = 'http://10.0.5.1:5001'
+axios.defaults.headers.post['Content-Type'] = 'application/json;charset=UTF-8'
 
 // 创建一个axios实例
 const instance = axios.create()
@@ -47,5 +47,27 @@ instance.interceptors.response.use(
 )
 
 export default {
-
+  // 用户登录
+  login (data) {
+    return instance.post('/login', data)
+  },
+  getCode (data) {
+    return instance.post('/code', data)
+  },
+  getCaptcha () {
+    return instance.post('/getCaptcha')
+  },
+  setPsw (data) {
+    return instance.post('', data)
+  }
+  // ,
+  // () {
+  // return instance.post('', data)
+  // },
+  // () {
+  // return instance.post('', data)
+  // },
+  // () {
+  // return instance.post('', data)
+  // },
 }

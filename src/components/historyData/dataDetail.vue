@@ -1,24 +1,25 @@
 <template>
   <div class="">
-    <mt-header title="历史统计数据">
+    <mt-header title="数据详情">
       <router-link to="" slot="left">
         <mt-button icon="back" @click="$router.go(-1)">返回</mt-button>
       </router-link>
-      <mt-button slot="right"><span class="filter">筛选</span></mt-button>
     </mt-header>
     <card v-for="(item, index) in items" :key="index" :title="item.title" :card="item.card"></card>
   </div>
 </template>
 
 <script>
-import card from './common/card'
+import card from '../common/card'
 export default {
-  name: 'countData',
+  name: '',
   components: {
     card
   },
   data () {
     return {
+      shopName: '',
+      popupVisible: false,
       items: [{
         title: '2018年 5月1日~5月21日',
         card: [{
@@ -56,6 +57,11 @@ export default {
           value: 100
         }]
       }]
+    }
+  },
+  methods: {
+    handleClick () {
+      this.popupVisible = true
     }
   }
 }

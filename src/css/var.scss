@@ -1,77 +1,14 @@
 /* 覆盖mint-ui的primary颜色，改为自己UI的主题色 */  
-$bg-primary: #666;  
-$color-primary: #fff; 
+$bg-primary: rgba(242, 242, 242, 1);  
+$color-primary: #666;  
+$font-color-primary: #fff;  
+$white: #fff; 
+$opcity: rgba(0, 0, 0, 0);
+$label-color: #333;
 $ml: 20px;
 $mm: 16px; 
 $ms: 8px;
-.ml {
-  margin-top: $ml;
-} 
-.mint-msgbox-confirm {
-  margin-top: $mm;
-} 
-.ms {
-  margin-top: $ms;
-} 
-.mint-header {  
-  background-color: $bg-primary;  
-}  
-.mint-button:not(.is-disabled):active::after {  
-    opacity: .2 /* .6 */  
-}  
-.mint-button--primary {  
-    background-color: $bg-primary;  
-}  
-.mint-button--primary.is-plain {  
-    border: 1px solid $bg-primary;  
-    color: $bg-primary  
-}  
-.mint-badge.is-primary {  
-  background-color: $bg-primary  
-}  
-.mint-switch-input:checked + .mint-switch-core {  
-  border-color: $bg-primary;  
-  background-color: $bg-primary;  
-}  
-.mint-navbar .mint-tab-item.is-selected {  
-  border-bottom: 3px solid $bg-primary;  
-  color: $bg-primary;  
-}  
-.mint-tabbar > .mint-tab-item.is-selected {  
-  color: $bg-primary;  
-}  
-.mint-searchbar-cancel {  
-  color: $bg-primary;  
-}  
-.mint-checkbox-input:checked + .mint-checkbox-core {  
-  background-color: $bg-primary;  
-  border-color: $bg-primary;  
-}  
-.mint-radio-input:checked + .mint-radio-core {  
-  background-color: $bg-primary;  
-  border-color: $bg-primary;  
-}  
-.mt-range-progress {  
-  background-color: $bg-primary;  
-}  
-.mt-progress-progress {  
-  background-color: $bg-primary;  
-}  
-.mint-msgbox-confirm {  
-  color: $bg-primary;  
-}  
-.mint-msgbox-confirm:active {  
-  color: $bg-primary;  
-}  
-.mint-datetime-action {  
-  color: $bg-primary;  
-}  
-.filter {
-  border: 1px solid $color-primary;
-  border-radius: 3px;
-  padding: 2px 4px;
-}
-
-.btnl {
-  padding: 20px 10px;
-}
+$font-large: 20px;
+$font-model: 16px;
+$font-small: 12px;
+$font-btn: 13px;

@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+  <div class="bg-con">
     <mt-header title="修改密码">
       <router-link slot="left" to="">
         <mt-button icon="back" @click="$router.go(-1)">返回</mt-button>
