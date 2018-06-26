@@ -27,14 +27,14 @@ Mock.mock(`${api}/login`, 'post', ({body}) => {
           success: true,
           msg: '登录成功',
           reset: false,
-          admin: true
+          admin: '客户经理'
         }
       } else {
         return {
           success: false,
           msg: '登录成功',
           reset: false,
-          admin: false
+          admin: '大区经理'
         }
       }
     } else {

@@ -33,7 +33,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../../css/var.scss";
 .panel {
   background-color: $white;
   margin: 8px 8px 0 8px;

@@ -2,7 +2,9 @@ import * as types from './types.js'
 
 const mutations = {
   [types.LOGIN]: (state, data) => {
-    state.token = data
+    console.log(data)
+    console.log(data.admin)
+    state.admin = data.admin
   }
 
 }

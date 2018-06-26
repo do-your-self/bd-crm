@@ -54,6 +54,15 @@ export default {
         password: this.password
       }).then(({ data }) => {
         console.log(data)
+        if (data.admin) {
+          this.$store.dispatch({
+            type: 'Login',
+            admin: data.admin
+          })
+          // this.$router.push({
+          //   path: '/setPsw'
+          // })
+        }
         if (data.success && data.reset) {
           this.$router.push({
             path: '/setPsw'

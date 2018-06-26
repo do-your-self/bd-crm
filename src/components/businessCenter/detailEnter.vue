@@ -6,14 +6,22 @@
       </router-link>
       <!-- <mt-button icon="more" slot="right"></mt-button> -->
     </mt-header>
-    <div class="user" @click="$router.push({path: '/userCenter'})">
-      {{user}}
+    <div class="busInfo" @click="$router.push({path: '/userCenter'})">
+      <div class="title">
+        {{busInfo.name}}<span>商</span><span>建</span>
+      </div>
+      <div class="container">
+        <span>风评等级：{{busInfo.level}}</span><span>授信额度：{{busInfo.amount}}万</span>
+        <!-- <div class="item">风评等级：{{busInfo.level}}</div>
+        <div class="item">授信额度：{{busInfo.amount}}万</div> -->
+      </div>
+      <span class="tag await">{{busInfo.state}}</span>
     </div>
     <router-link to="/countData">
       <card tag="5月" :card="card"></card>
     </router-link>
     <!-- <card tag="5月" :card="card"></card> -->
-    <div class="h60">
+    <div class="pull">
       <router-link to="/authPull" slot="left">
         <mt-cell title="拉新用户数" :value="pull+'人'" >
         </mt-cell>
@@ -21,17 +29,27 @@
         </mt-cell>
       </router-link>
     </div>
-    <mt-field label="客户经理" v-model="mng" class="ms" disabled="false"></mt-field>
+    <mt-field label="客户经理" placeholder="" v-model="mng" disabled="true">
+      <!-- <img src="../assets/100x100.png" height="48px" width="100px"> -->
+      <span is-link @click="$router.push({path: '/mngChange'})">变更<i class="fa fa-angle-double-right" aria-hidden="true"></i></span>
+      <!-- <span data-v-6183efd0="">变更</span><i class="mint-cell-allow-right"></i> -->
+    </mt-field>
+    <!-- <mt-cell title="客户经理" is-link to="/mngChange" class="ms">
+      <span>变更</span>
+    </mt-cell> -->
     <mt-field label="门店联系人" v-model="lxr"></mt-field>
-    <mt-field label="联系电话" v-model="phone"></mt-field>
+    <mt-field label="联系电话" placeholder="" v-model="mng" disabled="true">
+      <span><i class="fa fa-phone-square" aria-hidden="true"></i></span>
+    </mt-field>
+    <!-- <mt-cell title="联系电话"  to="/mngChange" class="ms" v-model="phone">
+      <span><i class="fa fa-phone-square" aria-hidden="true"></i></span>
+    </mt-cell> -->
     <mt-field label="签约日期" v-model="date"></mt-field>
     <mt-field label="我方签约人" v-model="qyr"></mt-field>
     <mt-field label="门店地址" v-model="address"></mt-field>
-    <router-link to="/createBusiness" class="color">
-      <mt-cell title="商户信息" is-link>
-      </mt-cell>
-    </router-link>
-    <mt-cell title="合同信息" is-link to="/businessCenter">
+    <mt-cell title="商户信息" is-link class="ml" to="/busInfo">
+    </mt-cell>
+    <mt-cell title="合同信息" is-link to="/contractInfo">
     </mt-cell>
     <mt-cell title="商户订单" is-link>
     </mt-cell>
@@ -47,6 +65,12 @@ export default {
   },
   data () {
     return {
+      busInfo: {
+        name: 'xxxx商户门店',
+        level: 'A',
+        amount: '31.11',
+        state: '审批中'
+      },
       mng: '张三（城市-角色名称）',
       lxr: '张三',
       phone: '12838383838',
@@ -80,16 +104,47 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.user {
-  padding: 16px 8px 0;
+.busInfo {
+  position: relative;
+  padding: 10px;
+  font-size: $font-middle;
+  .title {
+    span {
+      margin-left: 15px;
+      padding: 2px 5px;
+      background: $color-primary;
+      color: $white;
+      border-radius: 3px;
+    }
+  }
+  .tag {
+    position: absolute;
+    top: 10px;
+    right: 0;
+    width: 50px;
+    padding: 2px 5px;
+    text-align: center;
+    color: $white;
+  }
+  .await {
+    background: orange;
+  }
+  .success {
+    background: green;
+  }
+  .disable {
+    background: red;
+  }
 }
-.h60 {
-  padding: 10px 0;
+.container {
+  padding-top: 10px;
+  display: flex;
+  color: #999;
+  font-size: $font-small;
 }
-.h60 a {
-  color: #000;
-}
-.color {
-  color: #000;
-}
+// .item {
+//   flex: 1;
+//   text-align: left;
+//   padding-bottom: 10px;
+// }
 </style>

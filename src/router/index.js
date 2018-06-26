@@ -62,6 +62,13 @@ export default new Router({
       }
     },
     {
+      path: '/resetPsw',
+      name: 'resetPsw',
+      component (resolve) {
+        require(['@/components/user/resetPsw'], resolve)
+      }
+    },
+    {
       path: '/historyData',
       name: 'historyData',
       component (resolve) {
@@ -100,14 +107,28 @@ export default new Router({
       path: '/authPull',
       name: 'authPull',
       component (resolve) {
-        require(['@/components/authPull'], resolve)
+        require(['@/components/authPull/index'], resolve)
+      }
+    },
+    {
+      path: '/pullDetail',
+      name: 'pullDetail',
+      component (resolve) {
+        require(['@/components/authPull/pullDetail'], resolve)
       }
     },
     {
       path: '/createBusiness',
       name: 'createBusiness',
       component (resolve) {
-        require(['@/components/createBusiness'], resolve)
+        require(['@/components/businessCenter/createBusiness'], resolve)
+      }
+    },
+    {
+      path: '/completeInfo',
+      name: 'completeInfo',
+      component (resolve) {
+        require(['@/components/businessCenter/completeInfo'], resolve)
       }
     },
     {
@@ -146,10 +167,24 @@ export default new Router({
       }
     },
     {
+      path: '/account',
+      name: '/account',
+      component (resolve) {
+        require(['@/components/order/account'], resolve)
+      }
+    },
+    {
       path: '/businessCenter',
       name: 'businessCenter',
       component (resolve) {
         require(['@/components/businessCenter'], resolve)
+      }
+    },
+    {
+      path: '/busInfo',
+      name: 'busInfo',
+      component (resolve) {
+        require(['@/components/businessCenter/busInfo'], resolve)
       }
     },
     {
@@ -167,6 +202,13 @@ export default new Router({
       }
     },
     {
+      path: '/contractInfo',
+      name: 'contractInfo',
+      component (resolve) {
+        require(['@/components/businessCenter/contractInfo'], resolve)
+      }
+    },
+    {
       path: '/detailEnter',
       name: 'detailEnter',
       component (resolve) {
@@ -174,8 +216,8 @@ export default new Router({
       }
     },
     {
-      path: '/detailNotEenter',
-      name: 'detailNotEenter',
+      path: '/detailNotEnter',
+      name: 'detailNotEnter',
       component (resolve) {
         require(['@/components/businessCenter/detailNotEnter'], resolve)
       }

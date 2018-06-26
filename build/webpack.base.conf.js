@@ -51,6 +51,16 @@ module.exports = {
         loader: 'babel-loader',
         include: [resolve('src'), resolve('test'), resolve('node_modules/webpack-dev-server/client')]
       },
+      { loader: 'vue-style-loader', options: { sourceMap: true } },
+      { loader: 'css-loader', options: { sourceMap: true } },
+      { loader: 'postcss-loader', options: { sourceMap: true } },
+      { loader: 'sass-loader', options: { sourceMap: true } },
+      { loader: 'sass-resources-loader',
+        options: {
+          sourceMap: true,
+          resources: ['src/sass-global/**/*.scss']
+        }
+      },
       {
         test: /\.sass$/,
         loaders: ['style', 'css', 'sass']

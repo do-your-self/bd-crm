@@ -25,12 +25,11 @@
       <mt-cell title="认证用户数" :value="authentic+'人'">
       </mt-cell> -->
     </div>
-    <router-link to="/createBusiness">
-      <mt-cell title="创建商户" is-link>
-      </mt-cell>
-    </router-link>
+    <mt-cell title="创建商户" is-link to="/createBusiness" v-if="admin!=='客户经理'">
+    </mt-cell>
     <mt-cell title="商户管理" is-link to="/businessCenter">
-      {{expire}}家<span style="color: red">即将到期</span>
+      <span v-if="due">{{expire}}家</span>
+      <span v-if="due" style="color: red">即将到期</span>
     </mt-cell>
     <mt-cell title="商户订单" is-link to="/order">
       共{{order}}单
@@ -43,11 +42,11 @@
     <div class="btnl">
       <mt-button size="large" type="primary" @click="logout">退出系统</mt-button>
     </div>
-    <router-view></router-view>
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import card from './common/card.vue'
 export default {
   name: '',
@@ -62,6 +61,7 @@ export default {
       approve: 3,
       pull: 3000,
       authentic: 3000,
+      due: null,
       card: [{
         name: 'GMV',
         value: 3000
@@ -74,14 +74,16 @@ export default {
       }]
     }
   },
+  computed: {
+    ...mapState({
+      admin: state => state.admin
+    })
+  },
   methods: {
     logout () {
       // 跳转到指定的路由
-      // this.$router.push({
-      //   path: '/login'
-      // })
       this.$router.push({
-        path: '/authpull'
+        path: '/login'
       })
     }
   }

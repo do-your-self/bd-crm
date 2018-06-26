@@ -1,10 +1,10 @@
 <template>
   <div class="">
-    <mt-header title="商户签约">
+    <mt-header title="合同信息">
       <router-link to="" slot="left">
         <mt-button icon="back" @click="$router.go(-1)">返回</mt-button>
       </router-link>
-      <mt-button slot="right" class="rightbtn" @click="submit">提交审核</mt-button>
+      <mt-button slot="right" class="rightbtn" @click="submit">编辑</mt-button>
     </mt-header>
     <mt-navbar v-model="selected">
       <mt-tab-item id="1">合同信息</mt-tab-item>
@@ -88,11 +88,11 @@
 
 <script>
 import { mapState } from 'vuex'
-// import upimg from '../common/upimg'
+import upimg from '../common/upimg'
 export default {
   name: 'businessCenter',
   components: {
-    // upimg
+    upimg
   },
   data () {
     return {
